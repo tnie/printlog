@@ -9,14 +9,3 @@ void printlog(const std::string& str)
     std::cout << std::put_time(std::localtime(&t2), "%Y-%m-%d %H:%M:%S")
 		<< "  " << str << std::endl;
 }
-
-void test()
-{
-    printlog("hah");
-}
-
-int main(void)
-{
-    test();
-    return 0;
-}
