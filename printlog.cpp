@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <chrono>
 
-// Ouputs timestamp in the form like "20160126 09:14:38,456".
+// Ouputs timestamp in the form like "2016-01-26 09:14:38.456".
 std::string OutputNowTimestamp()
 {
     namespace chrono = std::chrono;
@@ -20,7 +20,7 @@ std::string OutputNowTimestamp()
     tm local_time_now;
     time_t raw_time = chrono::system_clock::to_time_t(time_now);
     _localtime64_s(&local_time_now, &raw_time);
-    stream << std::put_time(&local_time_now, "%Y%m%d %H:%M:%S,")
+    stream << std::put_time(&local_time_now, "%Y-%m-%d %H:%M:%S.")
            << std::setfill('0') << std::setw(3) << ms_part.count();
 	return stream.str();
 }
