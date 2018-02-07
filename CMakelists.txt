@@ -4,6 +4,10 @@ cmake_minimum_required (VERSION 2.8)
 project (printlog)
 # 查找当前目录下的所有源文件
 aux_source_directory(. DIR_LIB_SRCS)
-message(STATUS "DIR_LIB_SRCS=${DIR_LIB_SRCS}")
+message(STATUS "@@ DIR_LIB_SRCS=${DIR_LIB_SRCS}")
 # 指定生成目标
 add_library(printlog ${DIR_LIB_SRCS})
+# 指定库的安装路径
+message(status "@@ CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}")
+install(TARGETS printlog DESTINATION bin)
+install(FILES printlog.h DESTINATION include)
